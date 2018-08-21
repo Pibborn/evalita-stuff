@@ -70,7 +70,7 @@ def train_mlp_tf(X_train, y_train, X_test, y_test):
     layer_sizes = [X_train.shape[1], 500, 100, 30, 10, 2]
     lr = 1e-5
     batch_size = 32
-    run_id = 'layers_'str(layer_sizes) + '_lr_' + str(lr) + '_batch_' + batch_size
+    run_id = 'layers_' + str(layer_sizes) + '_lr_' + str(lr) + '_batch_' + batch_size
     model = create_model([X_train.shape[1], 30, 10, 2])
     train(model, X_train, y_train, X_test, y_test, run_id=run_id)
 
