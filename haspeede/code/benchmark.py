@@ -67,11 +67,11 @@ def train_mlp_pytorch(X_train, y_train, X_test, y_test):
     model.train(X_train, y_train, X_test, y_test, num_epochs=10000)
 
 def train_mlp_tf(X_train, y_train, X_test, y_test):
-    layer_sizes = [X_train.shape[1], 500, 100, 30, 10, 2]
-    lr = 1e-5
-    batch_size = 32
+    layer_sizes = [X_train.shape[1], 'batchnorm', 'dropout', 1000, 'batchnorm', 'dropout',500, 'batchnorm', 'dropout',100, 'batchnorm', 'dropout',10, 'batchnorm', 'dropout',2]
+    lr = 1e-6
+    batch_size = 64
     run_id = 'layers_' + str(layer_sizes).strip(' ') + '_lr_' + str(lr) + '_batch_' + str(batch_size)
-    model = create_model([X_train.shape[1], 30, 10, 2])
+    model = create_model(layer_sizes)
     train(model, X_train, y_train, X_test, y_test, run_id=run_id)
 
 
